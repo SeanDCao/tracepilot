@@ -2,7 +2,7 @@
 
 **Plan the evidence. Verify the sources. Deliver research people can inspect.**
 
-[简体中文](README.zh-CN.md) · [Skill entry](skill/tracepilot/SKILL.md) · [Usage guide](skill/tracepilot/references/usage-guide.md)
+[简体中文](README.zh-CN.md) · [Skill entry](tracepilot/SKILL.md) · [Usage guide](tracepilot/references/usage-guide.md)
 
 TracePilot (商航) is a general-purpose evidence research skill for AI. It turns an open question into a scoped research plan, selects sources by evidentiary need, distinguishes claims from observations and inference, and produces a verifiable Markdown or HTML report.
 
