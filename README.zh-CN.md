@@ -2,7 +2,7 @@
 
 **先规划证据，再核验来源，最后交付经得起追问的研究。**
 
-[English](README.md) · [Skill 入口](skill/tracepilot/SKILL.md) · [用法指南](skill/tracepilot/references/usage-guide.md)
+[English](README.md) · [Skill 入口](tracepilot/SKILL.md) · [用法指南](tracepilot/references/usage-guide.md)
 
 商航 TracePilot 是一套面向 AI 的通用证据研究 Skill。它把开放问题转化为有边界的研究方案，从问题所需证据反推来源，区分来源方陈述、样本观察、独立核验、推断与未知，并交付可核验的 Markdown 或 HTML 报告。
 
