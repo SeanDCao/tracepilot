@@ -99,4 +99,6 @@ python3 -m unittest discover -s tests
 
 ## 许可证
 
-项目尚未选择公开使用许可证。在加入正式许可证文件前，仓库内容仍受默认版权限制。
+本项目采用 [Apache License 2.0](LICENSE) 许可。
+
+版权信息和署名声明请参阅 [NOTICE](NOTICE)。
