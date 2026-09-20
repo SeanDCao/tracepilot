@@ -1,0 +1,4 @@
+interface:
+  display_name: "商航 TracePilot"
+  short_description: "指导全场景证据研究，动态规划来源并撰写可核验报告"
+  default_prompt: "使用 $tracepilot 研究一个商业、政策、技术、社会、组织、事件或平台问题；先理解我想回答什么，再动态规划来源和分析。"
