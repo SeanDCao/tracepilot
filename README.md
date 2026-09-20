@@ -99,4 +99,6 @@ Development notes and validation material are separate from the distributable sk
 
 ## License
 
-A public-use license has not yet been selected. Until a license file is added, the repository's contents remain subject to default copyright restrictions.
+This project is licensed under the [Apache License 2.0](LICENSE).
+
+Copyright information and attribution notices are provided in [NOTICE](NOTICE).
