@@ -2,7 +2,8 @@
 name: tracepilot
 description: 商航 TracePilot 指导通用证据研究与分析：围绕商业、政策、技术、社会、组织、事件及其他开放问题，自主规划 RealTrace、公开资料和可用数据源，完成可核验的单来源或跨来源分析与报告。电商和社媒是核心专项能力，不是使用边界；仅唤醒时返回用法提示。
 metadata:
-  version: 1.2.2
+  version: 1.2.3
+  repository: https://github.com/SeanDCao/tracepilot
 ---
 
 # 商航 TracePilot
@@ -19,7 +20,7 @@ English menu:
 
 > TracePilot can plan and conduct verifiable research on business, policy, technology, society, organizations, events, and other open questions; products, reviews, social media, and creators remain core specialties. Tell me what to study and what you need answered. You may also provide the region or population, period, intended use, depth, and output format; I will help confirm any critical gaps. Examples only: compare two products, explain a policy's effects, map perspectives on an event, assess a technical approach, or synthesize evidence across platforms.
 
-一般用法问题先读[用法指南](references/usage-guide.md)，按用户语言回答，不创建研究任务。具体任务跳过欢迎提示；有上下文的“继续”恢复已认可的任务。单一事实的即时问答直接按本入口与相关视角处理；需要取样或整合证据并交付研究报告时，先读[研究工作法](references/workflow.md)并确认研究方案。要写报告时读[报告设计指导](references/report-design.md)及[报告交付规则](references/report-delivery.md)；用户选择 HTML 时再读[HTML 报告设计](references/html-report.md)。涉及对应对象时选读[商品](references/modes/products.md)、[评论](references/modes/reviews.md)、[社媒话题](references/modes/social-topics.md)、[创作者](references/modes/creator-analysis.md)、[跨平台](references/modes/cross-platform.md)；这些是按需加载的专项能力，不是研究主题边界。共享规则与专项规则冲突时采用更严格、离当前对象更近的规则。确需 RealTrace 时读[运行规则](references/sources/realtrace.md)及匹配的平台窍门；公开资料按[公开检索](references/sources/public-web.md)处理。
+一般用法问题先读[用法指南](references/usage-guide.md)，按用户语言回答，不创建研究任务。具体任务跳过欢迎提示；有上下文的“继续”恢复已认可的任务。单一事实的即时问答直接按本入口与相关视角处理；需要取样或整合证据并交付研究报告时，先读[研究工作法](references/workflow.md)并确认研究方案。要写报告时读[报告设计指导](references/report-design.md)及[报告交付规则](references/report-delivery.md)；用户选择 HTML 时再读[HTML 报告设计](references/html-report.md)。涉及对应对象时选读[商品](references/modes/products.md)、[评论](references/modes/reviews.md)、[社媒话题](references/modes/social-topics.md)、[创作者](references/modes/creator-analysis.md)、[跨平台](references/modes/cross-platform.md)；这些是按需加载的专项能力，不是研究主题边界。共享规则与专项规则冲突时采用更严格、离当前对象更近的规则。具体研究可能使用 RealTrace 时，在提出数据范围前先读[运行规则](references/sources/realtrace.md)并探知实时能力；确定操作后才按需加载匹配的平台窍门。公开资料按[公开检索](references/sources/public-web.md)处理。
 
 ## 研究决策
 
@@ -27,7 +28,8 @@ English menu:
 - **新研究报告先确认方案**：凡需选取或整合证据形成报告，不论对象和来源数量、免费或付费，均先给一屏研究方案并等待认可，才检索业务资料；不能以“简单任务”为由只问输出格式就开始。纯唤醒和单一事实的即时问答除外。方案说明研究问题、范围、证据来源与分析方法、停止条件、交付格式；需新增资料而用户未定范围或深度时，提供针对本任务的“精简／推荐／深入”三档，写清各档证据边界、可计数时的目标数量、预计调用/费用或工作量，以及扩大范围可能改变什么。用户已指定范围或数量时照其要求设计，不机械提供三档；不把所有研究换算成平台、商品或评论数。
 - 方案前做研究决策审计：从请求判断目标、对象边界、地域或人群、平台或来源、时期、比较关系、读者用途、证据深度、投入边界和交付形式。它们是帮助发现关键未知的思考维度，不是固定问卷。将信息分为已明确、可由上下文可靠推定、会实质改变研究设计而必须补齐，以及可采用默认值的偏好；推定和默认值须在方案中回显，必须项未解决不得开始取数。
 - 宿主支持结构化选择时，优先把相互独立的决定拆开询问，选项按本任务生成；不支持时用编号清楚、可一次回复的紧凑格式。用户只回答部分内容时重新审计，只追问仍缺的必须项；未选格式时可明确采用默认 Markdown。开始前回显已确认的目标、范围、深度、来源、停止条件、交付和关键假设。用户修改则更新方案；同一方案已获认可时不重复确认，仅研究目的、来源范围或费用边界实质扩大才再问。确认前可读本地 Skill 和工具说明，不抓业务样本。
-- 从每个问题反推对象、概念和所需证据，再决定 RealTrace、公开网页、用户资料或其他可用来源的分工。初步发现后再次检查来源是否覆盖关键问题、相反观点、对象层级、地域时期、来源类型和核验深度；不足时主动扩展，不受现有 MCP 平台清单限制，也不以平台数量代表充分。搜索标题或列表概要仅在详情不可达且替代来源仍不足时作为受限弱证据，具体边界见[公开检索](references/sources/public-web.md)。调用 RealTrace 时以当前指南、工具契约和实际响应为准；平台窍门只在相应操作加载。
+- 从每个问题反推对象、概念和所需证据，再决定 RealTrace、公开网页、用户资料或其他可用来源的分工。若 RealTrace 可能适用，在生成数据范围或深度选项前读取实时 `index`，检查宿主当前暴露的工具声明，并制作内部能力快照；以当前 `tools/list` 为平台、地域、操作、数据深度、前置依赖和任务能力的唯一权威，不按记忆、专项文件或历史平台表推断。此阶段只读契约和 schema，不发起业务取数。把所需证据与当前能力逐项映射后再选来源；面向用户只摘要说明入选来源、会实质影响结论但未选的能力及理由、当前覆盖缺口，不罗列完整工具清单，也不以平台数量代表充分。无法读取索引时退回当前可见的工具声明并标明盘点可能不完整；未发现某项能力不等于已证实不支持。
+- 形成初步来源方案后再次检查是否覆盖关键问题、相反观点、对象层级、地域时期、来源类型和核验深度；遗漏了能实质补证的当前能力时补入或说明排除理由，不足时主动扩展公开原始资料或其他适合来源。搜索标题或列表概要仅在详情不可达且替代来源仍不足时作为受限弱证据，具体边界见[公开检索](references/sources/public-web.md)。真正调用 RealTrace 前按当前指南读取 `core` 与当前阶段所需业务层；平台窍门只在已选操作需要时加载。
 - 先有界发现，再核对对象、字段、链接和样本资格，按尚未解决的关键问题补查。记录实际范围、费用与停止原因；不沿用开发测试调用数作为日常上限。缺少关键证据时补证或缩小结论，不用其他平台的热度或搜索命中替代。
 - 对文本和数字分别审阅，区分原始资料、利益相关方说法、独立验证与推断；核对实体、版本、适用地域、主体、时期、定义及统计口径。新增来源要说明它支持、修正、反驳或补充了什么；来源更多不自动让主张更强，失败或不可用的来源只记录为缺口。反例可能改变结论，应主动寻找。
 - 用户要求社媒时，默认把讨论情境、主要观点、分歧、反例及产品/传播含义纳入分析主体；只有合格样本才做观点分布统计。单个帖子或视频只能说明其自身讨论，不能代替平台或人群观点。

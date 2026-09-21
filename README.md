@@ -8,14 +8,14 @@ TracePilot (商航) is a general-purpose evidence research skill for AI. It turn
 
 It can be used for business, policy, technology, society, organizations, events, and other researchable questions. Product, review, social-media, creator, and cross-platform research are first-class specialties—not the limits of the skill.
 
-> Current skill version: **1.2.2**
+> Current skill version: **1.2.3**
 
 ## Why TracePilot
 
 Many research agents begin with search and only later decide what the collected material means. TracePilot reverses that order:
 
 1. Clarify the question, audience, scope, and decision context.
-2. Plan the evidence and stopping conditions before collecting data.
+2. Plan the evidence, then use the host's live capabilities to set sources, scope, and stopping conditions before collecting data.
 3. Use public sources, connected data tools, user-provided material, or RealTrace where appropriate.
 4. Check entity, version, geography, time period, definitions, and counterevidence.
 5. Separate source claims, sample observations, independent verification, inference, and unknowns.
