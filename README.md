@@ -10,6 +10,12 @@ It can be used for business, policy, technology, society, organizations, events,
 
 > Current skill version: **1.2.3**
 
+## Works across agent hosts
+
+TracePilot is designed as portable research guidance rather than a workflow tied to one agent product. It can be used with **Codex, Claude, WorkBuddy**, and other capable agent systems that can load reusable instructions and work with research tools or source material.
+
+This repository uses a Codex-compatible skill package as its reference distribution. Other hosts may require adapting the directory layout, manifest, invocation syntax, or tool connections. The research method and evidence rules remain the same; the sources and operations available in a task depend on the host's live capabilities and permissions.
+
 ## Why TracePilot
 
 Many research agents begin with search and only later decide what the collected material means. TracePilot reverses that order:
@@ -75,9 +81,47 @@ tracepilot/
 
 ## Installation
 
-Use the `tracepilot` directory as a Codex-compatible skill package. Place it in your host's skills directory, or import the packaged release if your host supports skill imports. The core research workflow can operate with the sources available to the host; RealTrace is optional and only needed for the corresponding connected-data workflows.
+Start with the current `tracepilot-*.zip` package. Keep the original ZIP unless the steps below explicitly ask you to extract it.
 
-After installation, invoke it with `$tracepilot` followed by the question you want to research.
+### Codex — easiest method
+
+1. Open a local Codex task and attach the TracePilot ZIP.
+2. Send the following request:
+
+   ```text
+   Please inspect the attached TracePilot Skill package without running its scripts. Install it as a user-level Codex Skill, then verify that Codex can recognize and invoke $tracepilot. If you need file access or another confirmation, ask me first.
+   ```
+
+3. Let Codex complete the file placement and checks. Approve file access only when the destination is the Codex user skills location.
+4. If the new Skill does not appear immediately, restart Codex and try:
+
+   ```text
+   $tracepilot Tell me what you can research and how to start.
+   ```
+
+If you prefer installing from the repository, invoke `$skill-installer` in Codex and ask it to install the `tracepilot` Skill from `https://github.com/SeanDCao/tracepilot`. This also avoids manually handling hidden folders. See the [official OpenAI Skill guide](https://learn.chatgpt.com/docs/build-skills).
+
+### WorkBuddy — easiest method
+
+1. Open **Experts · Skills · Connectors → Skills** in the WorkBuddy sidebar.
+2. Choose **Add Skill → Upload Skill**.
+3. Select the original TracePilot ZIP; do not extract and re-compress it.
+4. Wait for WorkBuddy to finish importing it, then confirm that TracePilot is enabled under **Installed**.
+5. Start a conversation and try:
+
+   ```text
+   Use TracePilot to tell me what you can research and how to start.
+   ```
+
+If WorkBuddy reports that the package cannot be parsed, attach the ZIP to a normal WorkBuddy task and send:
+
+```text
+Please inspect the attached TracePilot Skill package without running its scripts. Create a WorkBuddy-compatible local copy, preserve the original research instructions and references, install it, and verify it with a simple read-only test. Tell me before requesting extra permissions or changing anything outside the Skill installation area.
+```
+
+See the [official WorkBuddy Skill guide](https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market).
+
+The core research workflow uses whatever sources are available to the host. RealTrace is optional and only needed for the corresponding connected-data workflows. Interface names may change between host versions; if they do, look for **Skills**, **Add Skill**, or **Upload Skill**.
 
 ## Design boundaries
 

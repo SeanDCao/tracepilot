@@ -10,6 +10,12 @@
 
 > 当前 Skill 版本：**1.2.3**
 
+## 可应用于多个智能体宿主
+
+TracePilot 是一套可迁移的研究指导，而不是绑定某个智能体产品的固定工作流。它可以应用于 **Codex、Claude、WorkBuddy**，以及其他能够加载复用指令并使用研究工具或来源材料的智能体系统。
+
+本仓库以 Codex 兼容的 Skill 包作为参考发行格式。其他宿主可能需要适配目录结构、清单文件、调用语法或工具连接方式；研究方法和证据规则保持一致，具体任务可使用的来源与操作则取决于宿主当时具备的能力和权限。
+
 ## 为什么是 TracePilot
 
 很多研究型 Agent 会先搜索，再决定材料意味着什么。TracePilot 把顺序倒过来：
@@ -75,9 +81,47 @@ tracepilot/
 
 ## 安装与使用
 
-将 `tracepilot` 目录作为 Codex 兼容 Skill 使用：放入宿主的 Skill 目录，或在宿主支持时导入发布包。核心研究工作流会使用宿主当前可用的来源；RealTrace 是可选能力，只在相应的连接数据工作流中需要。
+先准备当前版本的 `tracepilot-*.zip` 压缩包。除非下面的步骤明确要求，否则不要自行解压或重新打包。
 
-安装后，用 `$tracepilot` 加上你想研究的问题即可唤起。
+### Codex：最省事的安装方式
+
+1. 在本机 Codex 中新建一个任务，把 TracePilot 压缩包作为附件发给 Codex。
+2. 复制并发送下面这段话：
+
+   ```text
+   请检查附件中的 TracePilot Skill 安装包，安装时不要运行其中的脚本。请把它安装为我的用户级 Codex Skill，然后确认 Codex 能识别并调用 $tracepilot。如果需要文件访问权限或其他确认，请先询问我。
+   ```
+
+3. 等 Codex 完成文件放置和检查。只有当它说明目标是 Codex 的用户 Skill 目录时，再允许相应的文件访问。
+4. 如果新 Skill 没有马上出现，重启一次 Codex，然后发送：
+
+   ```text
+   $tracepilot 请介绍你能研究什么，以及我应该怎样开始。
+   ```
+
+如果不想下载压缩包，也可以在 Codex 中调用 `$skill-installer`，请它从 `https://github.com/SeanDCao/tracepilot` 安装 `tracepilot` Skill。这样同样不需要自己寻找隐藏目录。详见 [OpenAI 官方 Skill 指南](https://learn.chatgpt.com/docs/build-skills)。
+
+### WorkBuddy：最省事的安装方式
+
+1. 在 WorkBuddy 左侧打开 **专家 · Skills · Connectors → Skills**。
+2. 选择 **添加技能 → 上传技能**。
+3. 选择 TracePilot 的原始压缩包；不要先解压再重新压缩。
+4. 等待 WorkBuddy 完成导入，然后在 **已安装** 中确认 TracePilot 已启用。
+5. 新建一个对话，发送：
+
+   ```text
+   使用 TracePilot 介绍你能研究什么，以及我应该怎样开始。
+   ```
+
+如果 WorkBuddy 提示压缩包无法解析，可以把压缩包发到普通 WorkBuddy 任务中，再发送：
+
+```text
+请检查附件中的 TracePilot Skill 安装包，检查时不要运行其中的脚本。请创建一个兼容 WorkBuddy 的本地副本，保留原始研究指令和引用资料，完成安装，并用一个简单的只读任务验证。需要额外权限或修改 Skill 安装区域之外的内容前，请先告诉我。
+```
+
+详见 [WorkBuddy 官方技能说明](https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)。
+
+核心研究工作流会使用宿主当前可用的来源；RealTrace 是可选能力，只在相应的连接数据工作流中需要。不同版本的界面名称可能略有变化，找不到上述入口时，可以寻找 **Skills／技能**、**添加技能** 或 **上传技能**。
 
 ## 设计边界
 
