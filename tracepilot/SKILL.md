@@ -2,7 +2,7 @@
 name: tracepilot
 description: 商航 TracePilot 指导通用证据研究与分析：围绕商业、政策、技术、社会、组织、事件及其他开放问题，自主规划 RealTrace、公开资料和可用数据源，完成可核验的单来源或跨来源分析与报告。电商和社媒是核心专项能力，不是使用边界；仅唤醒时返回用法提示。
 metadata:
-  version: 1.2.3
+  version: 1.2.3 
   repository: https://github.com/SeanDCao/tracepilot
 ---
 

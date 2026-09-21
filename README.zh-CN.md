@@ -60,7 +60,7 @@ TracePilot 不会把所有问题塞进固定问卷、固定样本量或固定报
 ## 仓库结构
 
 ```text
-skill/tracepilot/
+tracepilot/
 ├── SKILL.md                  # Skill 正式入口与路由规则
 ├── agents/openai.yaml        # 展示信息与默认提示词
 ├── references/
@@ -86,16 +86,6 @@ skill/tracepilot/
 - 不把不同平台的互动量简单相加为一个“总热度”。
 - 没有充分证据时，不把样本现象外推为整个市场或人群结论。
 - 不预测创作者 ROI，不绕过访问控制，也不把不可用数据写成已核实事实。
-
-## 开发与验证
-
-仓库包含契约测试，用于检查核心定位、证据边界、专项模式与来源附录规则。
-
-```bash
-python3 -m unittest discover -s tests
-```
-
-开发记录和验证材料与可分发的 Skill 包相互独立。当前本地开发状态见 [START-HERE.md](START-HERE.md)。
 
 ## 许可证
 

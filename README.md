@@ -60,7 +60,7 @@ For a single factual question, TracePilot can answer directly. When a task requi
 ## Repository layout
 
 ```text
-skill/tracepilot/
+tracepilot/
 ├── SKILL.md                  # Skill entry and routing rules
 ├── agents/openai.yaml        # Display metadata and default prompt
 ├── references/
@@ -86,16 +86,6 @@ After installation, invoke it with `$tracepilot` followed by the question you wa
 - Platform engagement metrics are not added across platforms as if they shared one denominator.
 - Sample patterns are not generalized to an entire market or population without adequate evidence.
 - The skill does not predict creator ROI, bypass access controls, or treat unavailable data as verified fact.
-
-## Development
-
-The repository includes contract tests for core positioning, evidence boundaries, specialist modes, and report provenance.
-
-```bash
-python3 -m unittest discover -s tests
-```
-
-Development notes and validation material are separate from the distributable skill package. See [START-HERE.md](START-HERE.md) for the current local development state.
 
 ## License
 
