@@ -6,10 +6,10 @@ functions never fetch data, decide relevance, or generate report prose.
 
 from __future__ import annotations
 
+import re
 from collections import Counter, defaultdict
 from decimal import Decimal, InvalidOperation
 from urllib.parse import urlparse
-import re
 
 
 def valid_public_url(value: str | None) -> bool:
@@ -26,8 +26,11 @@ def placeholder_date(value: str | None) -> bool:
     if not isinstance(value, str):
         return False
     return value.strip().lower() in {
-        "january 01, 1970", "january 1, 1970", "1970-01-01",
-        "1970-01-01t00:00:00z", "1970-01-01t00:00:00+00:00",
+        "january 01, 1970",
+        "january 1, 1970",
+        "1970-01-01",
+        "1970-01-01t00:00:00z",
+        "1970-01-01t00:00:00+00:00",
     }
 
 
@@ -77,7 +80,11 @@ def reddit_comment_belongs(post_url: str, comment_url: str | None) -> bool | Non
     return None if parent is None or child is None else parent == child
 
 
-def viewpoint_distribution(rows: list[dict], expected_ids: list[str], selection: str) -> list[dict]:
+def viewpoint_distribution(
+    rows: list[dict],
+    expected_ids: list[str],
+    selection: str,
+) -> list[dict]:
     """Count one predefined, fully coded sample; percentages remain sample-only."""
     if selection not in {"all_eligible", "systematic", "random", "purposive"}:
         raise ValueError("Declare how the sample was selected")
@@ -95,25 +102,42 @@ def viewpoint_distribution(rows: list[dict], expected_ids: list[str], selection:
         labels = row.get("labels")
         if not isinstance(labels, list) or not all(isinstance(x, str) for x in labels):
             raise ValueError("Each record needs a reviewed label list, possibly empty")
-        if row.get("stance") not in {"positive", "negative", "neutral", "mixed", "unknown"}:
+        if row.get("stance") not in {
+            "positive",
+            "negative",
+            "neutral",
+            "mixed",
+            "unknown",
+        }:
             raise ValueError("Each record needs a reviewed stance")
-        groups[(row["platform"], row["site"], row["kind"], row.get("item_id"))].append(row)
+        key = (row["platform"], row["site"], row["kind"], row.get("item_id"))
+        groups[key].append(row)
     result = []
     for key, group in sorted(groups.items(), key=lambda item: str(item[0])):
         themes = Counter(label for row in group for label in set(row["labels"]))
         stances = Counter(row["stance"] for row in group)
         n = len(group)
-        result.append({
-            "platform": key[0], "site": key[1], "kind": key[2], "item_id": key[3],
-            "denominator": n, "theme_counts": dict(sorted(themes.items())),
-            "stance_counts": dict(sorted(stances.items())),
-            "theme_sample_percent": (
-                None if selection == "purposive"
-                else {theme: round(count * 100 / n, 1) for theme, count in themes.items()}
-            ),
-            "selection": selection,
-            "population_inference": False,
-        })
+        result.append(
+            {
+                "platform": key[0],
+                "site": key[1],
+                "kind": key[2],
+                "item_id": key[3],
+                "denominator": n,
+                "theme_counts": dict(sorted(themes.items())),
+                "stance_counts": dict(sorted(stances.items())),
+                "theme_sample_percent": (
+                    None
+                    if selection == "purposive"
+                    else {
+                        theme: round(count * 100 / n, 1)
+                        for theme, count in themes.items()
+                    }
+                ),
+                "selection": selection,
+                "population_inference": False,
+            }
+        )
     return result
 
 

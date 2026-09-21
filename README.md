@@ -1,20 +1,50 @@
-# TracePilot
+<div align="center">
 
-**Plan the evidence. Verify the sources. Deliver research people can inspect.**
+# 🔎 TracePilot
 
-[简体中文](README.zh-CN.md) · [Skill entry](tracepilot/SKILL.md) · [Usage guide](tracepilot/references/usage-guide.md)
+**Define the question. Plan the evidence. Turn scattered sources into verifiable research.**
 
-TracePilot (商航) is a general-purpose evidence research skill for AI. It turns an open question into a scoped research plan, selects sources by evidentiary need, distinguishes claims from observations and inference, and produces a verifiable Markdown or HTML report.
+<p align="center">
+  <a href="README.md"><img alt="English" src="https://img.shields.io/badge/English-2563EB?style=flat-square&labelColor=0F172A"></a>
+  <a href="README.zh-CN.md"><img alt="Simplified Chinese" src="https://img.shields.io/badge/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-DBEAFE?style=flat-square&labelColor=0F172A"></a>
+</p>
+
+<p align="center">
+  <a href="LICENSE"><img alt="License: Apache 2.0" src="https://img.shields.io/badge/License-Apache--2.0-D9A441.svg"></a>
+  <img alt="Version 1.3.0" src="https://img.shields.io/badge/version-1.3.0-0F766E.svg">
+  <a href="tracepilot/SKILL.md"><img alt="Agent Skill: SKILL.md" src="https://img.shields.io/badge/Agent%20Skill-SKILL.md-7C3AED.svg"></a>
+</p>
+
+<p align="center">
+  <b>Works with</b><br>
+  <a href="https://learn.chatgpt.com/docs/build-skills"><img alt="Codex" src="https://img.shields.io/badge/Codex-111827?style=for-the-badge"></a>
+  <a href="https://code.claude.com/docs/en/skills"><img alt="Claude Code" src="https://img.shields.io/badge/Claude%20Code-D97757?style=for-the-badge&logo=claude&logoColor=white"></a>
+  <a href="https://cursor.com/docs/skills"><img alt="Cursor" src="https://img.shields.io/badge/Cursor-111827?style=for-the-badge&logo=cursor&logoColor=white"></a>
+  <a href="https://opencode.ai/docs/skills"><img alt="OpenCode" src="https://img.shields.io/badge/OpenCode-334155?style=for-the-badge"></a>
+  <a href="https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market"><img alt="WorkBuddy" src="https://img.shields.io/badge/WorkBuddy-1D4ED8?style=for-the-badge"></a>
+  <br><sub>The core research instructions are portable across hosts that support <code>SKILL.md</code>. Available sources, RealTrace, structured choices, and tool operations depend on each host's live capabilities, connections, and permissions.</sub>
+</p>
+
+<i>Business · Policy · Technology · Society · Organizations · Events · Products · Reviews · Social media · Creators</i>
+
+</div>
+
+---
+
+TracePilot (商航) is a general-purpose evidence research skill for AI.
+It turns an open question into a scoped research plan, selects sources by evidentiary need, distinguishes claims from observations and inference, and produces a verifiable Markdown or HTML report.
 
 It can be used for business, policy, technology, society, organizations, events, and other researchable questions. Product, review, social-media, creator, and cross-platform research are first-class specialties—not the limits of the skill.
 
-> Current skill version: **1.2.3**
-
 ## Works across agent hosts
 
-TracePilot is designed as portable research guidance rather than a workflow tied to one agent product. It can be used with **Codex, Claude, WorkBuddy**, and other capable agent systems that can load reusable instructions and work with research tools or source material.
+TracePilot is portable research guidance, not a workflow tied to one agent product.
+It is portable to **Codex, Claude Code, Cursor, OpenCode, WorkBuddy**, and other capable agent systems that can load reusable instructions and work with research tools or source material.
 
-This repository uses a Codex-compatible skill package as its reference distribution. Other hosts may require adapting the directory layout, manifest, invocation syntax, or tool connections. The research method and evidence rules remain the same; the sources and operations available in a task depend on the host's live capabilities and permissions.
+This repository uses a Codex-compatible skill package as its reference distribution.
+Other hosts may require adapting the directory layout, manifest, invocation syntax, or tool connections.
+The research method and evidence rules remain the same; compatibility with the `SKILL.md` format does not imply identical tool access or end-to-end validation on every host.
+The sources and operations available in a task depend on the host's live capabilities, connections, and permissions.
 
 ## Why TracePilot
 
@@ -40,6 +70,11 @@ Many research agents begin with search and only later decide what the collected 
 
 TracePilot does not force every question into a fixed questionnaire, fixed sample size, or fixed report structure. It adapts the research design to the actual question while retaining strict evidence boundaries.
 
+A rough topic is enough to begin—for example, “analyze Dell.”
+If the purpose, object level, or comparison relationship could lead to fundamentally different studies, TracePilot asks a small set of task-specific single- or multiple-choice questions.
+It also confirms names that may refer to different industries, models, accounts, people, or events.
+When the user already provides a clear request, precise identifier, reliable context, or executable reference template, TracePilot proceeds to the existing research-planning workflow without forcing another questionnaire.
+
 ## Example prompts
 
 ```text
@@ -54,7 +89,9 @@ Use $tracepilot to explain how this new policy affects small organizations, incl
 Use $tracepilot to study consumer needs in this category by combining product pages, reviews, social discussion, and relevant public sources.
 ```
 
-For a single factual question, TracePilot can answer directly. When a task requires sampling or evidence synthesis into a report, it first confirms the research plan, source scope, depth, stopping conditions, and delivery format.
+For a single factual question, TracePilot can answer directly.
+When a task requires sampling or evidence synthesis into a report, it first confirms the research plan, source scope, depth, stopping conditions, and delivery format.
+The readiness check only resolves the purpose, object, object level, and comparison relationship; the rest of the workflow remains unchanged.
 
 ## Outputs
 
@@ -81,7 +118,8 @@ tracepilot/
 
 ## Installation
 
-Start with the current `tracepilot-*.zip` package. Keep the original ZIP unless the steps below explicitly ask you to extract it.
+Start with the current `tracepilot-*.zip` release package.
+Keep the original ZIP unless the steps below explicitly ask you to extract it.
 
 ### Codex — easiest method
 
@@ -121,7 +159,9 @@ Please inspect the attached TracePilot Skill package without running its scripts
 
 See the [official WorkBuddy Skill guide](https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market).
 
-The core research workflow uses whatever sources are available to the host. RealTrace is optional and only needed for the corresponding connected-data workflows. Interface names may change between host versions; if they do, look for **Skills**, **Add Skill**, or **Upload Skill**.
+The core research workflow uses whatever sources are available to the host.
+RealTrace is optional and is needed only for the corresponding connected-data workflows.
+Interface names may change between host versions; if they do, look for **Skills**, **Add Skill**, or **Upload Skill**.
 
 ## Design boundaries
 

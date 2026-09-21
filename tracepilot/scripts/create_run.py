@@ -2,10 +2,10 @@
 """Create one isolated TracePilot research directory and print its path."""
 
 import argparse
-from datetime import datetime
-from pathlib import Path
 import secrets
 import unicodedata
+from datetime import datetime
+from pathlib import Path
 
 
 def topic_slug(topic: str) -> str:
@@ -42,7 +42,11 @@ def create_run(runs_root: Path, topic: str) -> Path:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--topic", required=True, help="Short, nonsensitive research topic")
+    parser.add_argument(
+        "--topic",
+        required=True,
+        help="Short, nonsensitive research topic",
+    )
     parser.add_argument(
         "--runs-root",
         type=Path,
