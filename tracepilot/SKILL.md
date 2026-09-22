@@ -2,7 +2,7 @@
 name: tracepilot
 description: 商航 TracePilot 指导通用证据研究：围绕商业、政策、技术、社会、组织、事件等开放问题，规划 RealTrace、公开资料和其他可用来源，交付可核验的单来源或跨来源分析与报告；商品、评论、社媒与创作者研究是核心专项能力，纯唤醒时仅返回用法提示。
 metadata:
-  version: 1.3.0
+  version: 1.4.0
   repository: https://github.com/SeanDCao/tracepilot
 ---
 
@@ -32,7 +32,7 @@ English menu:
 - 一般用法问题：先读[用法指南](references/usage-guide.md)，按用户语言回答，不创建研究任务。
 - 有上下文的“继续”：恢复已认可的任务。
 - 单一事实的即时问答：直接按本入口与相关视角处理。
-- 需要取样或整合证据并交付研究报告：先读[研究工作法](references/workflow.md)，再按既有流程确认研究方案。
+- 需要取样或整合证据并交付研究报告：先读[研究工作法](references/workflow.md)和[内部研究架构](references/research-architecture.md)，再按既有流程确认研究方案。
 - 需要写报告：读[报告设计指导](references/report-design.md)和[报告交付规则](references/report-delivery.md)；仅在用户选择 HTML 时读[HTML 报告设计](references/html-report.md)。
 - 涉及对应对象：按需选读[商品](references/modes/products.md)、[评论](references/modes/reviews.md)、[社媒话题](references/modes/social-topics.md)、[创作者](references/modes/creator-analysis.md)或[跨平台](references/modes/cross-platform.md)。这些是专项能力，不是研究主题边界。
 - 共享规则与专项规则冲突时采用更严格、离当前对象更近的规则。
@@ -90,6 +90,10 @@ English menu:
   开始前回显已确认的目标、范围、深度、来源、停止条件、交付和关键假设。
   用户修改则更新方案；同一方案已获认可时不重复确认，仅研究目的、来源范围或费用边界实质扩大才再问。
   确认前可读本地 Skill 和工具说明，不抓业务样本。
+- 核心需求就绪并完成初步审计后，按[内部研究架构](references/research-architecture.md)先形成内部草案，以“研究目的 → 问题树 → 分析命题 → 证据要求 → 分析方法 → 章节蓝图 → 表达形式”约束现有研究方案。
+  用户仍只看到一屏方案，不增加询问步骤，也不向用户展示完整内部矩阵。
+  方案认可并创建任务目录后，在正式业务取数前保存任务内部的 `research-blueprint.md`；取得证据后可更新命题、反证、问题状态和章节蓝图，只有研究目的、来源范围或费用边界实质扩大才重新确认。
+  该文件只记录结构化决策及简洁依据，不记录自由展开的思维链；纯唤醒、即时事实问答和不创建研究任务的请求不生成。
 - 从每个问题反推对象、概念和所需证据，再决定 RealTrace、公开网页、用户资料或其他可用来源的分工。
   若 RealTrace 可能适用，在生成数据范围或深度选项前读取实时 `index`，检查宿主当前暴露的工具声明，并制作内部能力快照；以当前 `tools/list` 为平台、地域、操作、数据深度、前置依赖和任务能力的唯一权威，不按记忆、专项文件或历史平台表推断。
   此阶段只读契约和 `schema`，不发起业务取数。
@@ -116,6 +120,7 @@ AI 自己设计并撰写 Markdown。
 每份对外报告在正文末尾按[报告交付规则](references/report-delivery.md)附简洁的“附：数据来源”，只分组列出实际采用的 MCP 平台和公开资料来源。
 不要把原始记录、逐条编码、哈希、工具日志、QA 表或长证据清单附进成品。
 详细取证和检查留在当前任务资料，不混入其他任务。
+内部 `research-blueprint.md`、问题树、命题—证据映射和状态记录也只留在任务目录，不进入对外报告或来源附录。
 
 脚本只用于确定性计算、去重和检查；不要把固定章节生成器当报告作者。
 默认仅交 Markdown；只有用户选择时才制作独立 HTML。

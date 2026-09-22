@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="LICENSE"><img alt="License: Apache 2.0" src="https://img.shields.io/badge/License-Apache--2.0-D9A441.svg"></a>
-  <img alt="Version 1.3.0" src="https://img.shields.io/badge/version-1.3.0-0F766E.svg">
+  <img alt="Version 1.4.0" src="https://img.shields.io/badge/version-1.4.0-0F766E.svg">
   <a href="tracepilot/SKILL.md"><img alt="Agent Skill: SKILL.md" src="https://img.shields.io/badge/Agent%20Skill-SKILL.md-7C3AED.svg"></a>
 </p>
 
